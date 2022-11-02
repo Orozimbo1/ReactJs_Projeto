@@ -10,8 +10,10 @@ import * as actions from '../../store/modules/auth/actions';
 import axios from '../../services/axios';
 import history from '../../services/history';
 
-export default function Login() {
+export default function Login(props) {
     const dispatch = useDispatch();
+
+    const prevPath = get(props, 'location.state.prevPath', '/');
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -33,21 +35,7 @@ export default function Login() {
 
         if (formErrors) return;
 
-        dispatch(actions.LoginRequest({ email, password }));
-
-        // try {
-        //     const response = await axios.post('/tokens/', {
-        //         email,
-        //         password,
-        //     });
-        //     toast.success('Voçê logou com sucesso!');
-        //     history.push('/');
-        // } catch (e) {
-        //     const status = get(e, 'response.status', 0);
-        //     const errors = get(e, 'response.data.errors', []);
-
-        //     errors.map((error) => toast.error(error));
-        // }
+        dispatch(actions.LoginRequest({ email, password, prevPath }));
     }
 
     return (
