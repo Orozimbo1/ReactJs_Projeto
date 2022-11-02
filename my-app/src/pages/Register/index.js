@@ -49,7 +49,7 @@ export default function Register() {
 
         if (formErrors) return;
 
-        dispatch(actions.RegisterRequest({ nome, email, password, id }));
+        dispatch(actions.registerRequest({ nome, email, password, id }));
     }
 
     return (
