@@ -18,7 +18,7 @@ function* LoginRequest({ payload }) {
         history.push(payload.prevPath);
     } catch (e) {
         yield put(actions.LoginFailure());
-        console.log('Usuário ou senha incorretos.');
+        toast.error('Usuário ou senha incorretos.');
     }
 }
 
