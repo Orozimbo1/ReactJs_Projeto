@@ -22,6 +22,11 @@ function* LoginRequest({ payload }) {
     }
 }
 
+function registerRequest({ payload }) {
+    const { nome, email, password, id } = payload;
+    console.log(payload);
+}
+
 function persistRehydrate({ payload }) {
     const token = get(payload, 'auth.token', '');
 
@@ -33,4 +38,5 @@ function persistRehydrate({ payload }) {
 export default all([
     takeLatest(types.LOGIN_REQUEST, LoginRequest),
     takeLatest(types.PERSIST_REHYDRATE, persistRehydrate),
+    takeLatest(types.REGISTER_REQUEST, registerRequest),
 ]);
