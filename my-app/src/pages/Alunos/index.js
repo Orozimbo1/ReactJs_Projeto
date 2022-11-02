@@ -26,11 +26,11 @@ export default function Alunos() {
 
             <AlunoContainer>
                 {alunos.map((aluno) => (
-                    <div key={String(aluno.usuario_id)}>
+                    <div key={String(aluno.id)}>
                         <ProfilePicture>
-                            {get(aluno, 'img_perfil_usuario', false) ? (
+                            {get(aluno, 'Fotos[0].url', false) ? (
                                 <img
-                                    src={aluno.img_perfil_usuario}
+                                    src={aluno.Fotos[0].url}
                                     alt="Imagem de perfil do usuário"
                                 />
                             ) : (
@@ -40,10 +40,10 @@ export default function Alunos() {
                         <span>{aluno.nome}</span>
                         <span>{aluno.email}</span>
 
-                        <Link to={`/aluno/${aluno.usuario_id}/edit`}>
+                        <Link to={`/aluno/${aluno.id}/edit`}>
                             <FaEdit size={16} />
                         </Link>
-                        <Link to={`/aluno/${aluno.usuario_id}/edit`}>
+                        <Link to={`/aluno/${aluno.id}/delete`}>
                             <FaWindowClose size={16} />
                         </Link>
                     </div>
