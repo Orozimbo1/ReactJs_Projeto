@@ -4,7 +4,7 @@ import { isEmail } from 'validator';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Container } from '../../styles/GlobalStyles';
-import { Form } from './styled';
+import { Form, Title } from './styled';
 import Loading from '../../components/Loading';
 import * as actions from '../../store/modules/auth/actions';
 
@@ -56,7 +56,7 @@ export default function Register() {
         <Container>
             <Loading isLoading={isLoading} />
 
-            <h1>{id ? 'Editar dados' : 'Crie sua conta'}</h1>
+            <Title>{id ? 'Editar dados' : 'Crie sua conta'}</Title>
 
             <Form onSubmit={handleSubmit}>
                 <label htmlFor="nome">
