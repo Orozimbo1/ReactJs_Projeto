@@ -39,7 +39,7 @@ export default function Register() {
         if (!isEmail(email)) {
             formErrors = true;
 
-            toast.error('Email inválido.');
+            toast.error('Email inválido ex:"example@example.com".');
         }
         if (!id && (password.length < 6 || password.length > 50)) {
             formErrors = true;
